@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Transcriber</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #loading-animation {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 15%;
+            transform: translate(-50%, -50%);
+            width: 20%;
+            height: 20%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Music Transcriber</h1>
+
+    </header>
+    <main>
+        <section id="home">
+            <p>Music Transcriber transcribes the parts to your song!</p>
+            <p>Turn .wav, .mp3, .mp4, and .flac files into instrument-separated midi and .wav files.</p>
+            <form id="uploadForm" action="/process_file" method="post" enctype="multipart/form-data" onsubmit="showProcessingMessage(); return true;">
+                <label for="fileInput" style="cursor: pointer;">
+                    <button type="button" onclick="uploadFile()">Upload Audio File</button>
+                    <span id="fileNameDisplay">No file chosen</span>
+                    <input type="file" id="fileInput" name="file" accept=".wav, .mp3, .mp4, .flac" style="display: none;" onchange="displayFileName()">
+                </label>
+                <button type="submit">Convert</button>
+            </form>
+            <p id="message"></p>
+        </section>
+
+        <section id="about">
+            <h2>Usage tips</h2>
+            <p>Drag the midi files into any Musical Notation software to learn one or more parts from sheet music.</p>
+            <p>Or drag the midi into your Digital Audio Workstation and change the sounds.</p>
+            <p>Use the isolated .mp3s to sample certain parts of songs.</p>
+            <p>You could even the chord chart to write your own part to the song!</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Reply on GitHub to get in touch!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Music Transcriber. All rights reserved.</p>
+    </footer>
+
+    <img id="loading-animation" src="https://media.tenor.com/S81VBgx8R_wAAAAi/musical-notes.gif" alt="Loading...">
+    
+    <script>
+        function uploadFile() {
+            document.getElementById('fileInput').click();
+        }
+
+        function showProcessingMessage() {
+            document.getElementById('message').textContent = 'Processing, please wait...';
+            showLoadingAnimation();
+        }
+
+        function showLoadingAnimation() {
+            document.getElementById('loading-animation').style.display = 'block';
+        }
+
+        function displayFileName() {
+            const fileInput = document.getElementById('fileInput');
+            const fileNameDisplay = document.getElementById('fileNameDisplay');
+            fileNameDisplay.textContent = fileInput.files[0] ? fileInput.files[0].name : 'No file chosen';
+        }
+    </script>
+</body>
+</html>
