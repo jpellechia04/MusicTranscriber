@@ -1,8 +1,8 @@
 # ignore spleeter models
-/pretrained_models
+pretrained_models
 
 #  pycaches
-/music_transcriber/__pycache__
+music_transcriber/__pycache__
 
 # ignore poetry lock file
-/poetry.lock
+poetry.lock
