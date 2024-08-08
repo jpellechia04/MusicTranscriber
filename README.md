@@ -3,7 +3,9 @@
 **------Installation:-------**
 Download the whole MusicTranscribe repository. 
 Then, in your terminal, cd to the MusicTranscribe folder with 'cd /path/to/MusicTranscribe'.
+
 Make sure you have poetry and flask installed on your hard drive. If you don't have poetry installed, you can do it in you terminal with 'pip install poetry.'
+
 Now run 'poetry install' to install MusicTranscriber dependencies from the pyproject.toml. 
 
 **------Instructions:-------**
