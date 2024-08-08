@@ -4,16 +4,12 @@
 Download the whole MusicTranscribe repository. 
 Then, in your terminal, cd to the MusicTranscribe folder with 'cd /path/to/MusicTranscribe'.
 
-Make sure you have poetry and flask installed on your hard drive. If you don't have poetry installed, you can do it in you terminal with 'pip install poetry.'
+MusicTranscriber uses Poetry as it's virtual environment. Make sure you have poetry and flask installed on your hard drive. If you don't have poetry installed, you can do it in you terminal with 'pip install poetry.'
 
 Now run 'poetry install' to install MusicTranscriber dependencies from the pyproject.toml. 
 
 **------Instructions:-------**
-To use MusicTranscribe from the shell, first cd to the MusicTranscribe directory in your filesystem with 'cd downloads' or 'cd desktop' and then 'cd MusicTranscribe'. poetry ensures MusicTranscriber's poetry dependencies are active, so append 'poetry run' to the beginning of your command. Here is a sequence of commands to use MusicTranscribe: 
-
-cd MusicTranscriber
-
-poetry install
+To use MusicTranscribe from the shell, first cd to the MusicTranscribe directory in your filesystem. 
 
 poetry run python3 music_transcriber/MusicAssist.py /valid/path/to/audio/file.mp3
 
